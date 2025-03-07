@@ -14,8 +14,9 @@
             <ul>
                 <li><a href="{{ url_for('home') }}" {% if request.path == '/' %}class="active"{% endif %}>Home</a></li>
                 <!-- <li><a href="{{ url_for('notes') }}" {% if request.path.startswith('/notes') %}class="active"{% endif %}>Notes</a></li> -->
-                <li><a href="/publications" {% if request.path == '/publications' %}class="active"{% endif %}>Publications</a></li>
-                <li><a href="/projects" {% if request.path == '/projects' %}class="active"{% endif %}>Database&Tools</a></li>
+                <!-- <li><a href="/publications" {% if request.path == '/publications' %}class="active"{% endif %}>Publications</a></li> -->
+                <li><a href="{{ url_for('publications') }}" >Publications</a></li>
+                <li><a href="{{ url_for('projects') }}" >Database&Tools</a></li>
             </ul>
         </nav>
 
