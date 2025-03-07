@@ -89,6 +89,40 @@ def projects():
     # 放的是数据库还有工具
 
     return render_template('projects.html')
+
+@app.route('/publications/<publication_id>')
+def publication(publication_id):
+    # 从content/publications目录读取对应的markdown文件
+    publication_path = os.path.join(app.root_path, 'content', 'publications', f'{publication_id}.md')
+    if not os.path.exists(publication_path):
+        abort(404)
+    
+    # 读取并解析markdown内容
+    with open(publication_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # 使用markdown库将内容转换为HTML
+    html_content = markdown.markdown(content, extensions=['extra', 'codehilite'])
+    
+    # 渲染模板
+    return render_template('publication.html', content=html_content, title=publication_id)
+
+@app.route('/projects/<project_id>')
+def project(project_id):
+    # 从content/projects目录读取对应的markdown文件
+    project_path = os.path.join(app.root_path, 'content', 'projects', f'{project_id}.md')
+    if not os.path.exists(project_path):
+        abort(404)
+    
+    # 读取并解析markdown内容
+    with open(project_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # 使用markdown库将内容转换为HTML
+    html_content = markdown.markdown(content, extensions=['extra', 'codehilite'])
+    
+    # 渲染模板
+    return render_template('project.html', content=html_content, title=project_id)
     
 if __name__ == '__main__':
     app.run(debug=True, port=5001)  # 修改为其他端口号
