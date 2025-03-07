@@ -6,6 +6,10 @@ import os
 app.config['FREEZER_DESTINATION'] = 'docs'
 # 确保静态文件路径正确
 app.config['FREEZER_RELATIVE_URLS'] = True
+# 添加默认MIME类型，确保生成.html文件
+app.config['FREEZER_DEFAULT_MIMETYPE'] = 'text/html'
+# 添加以下配置，强制URL末尾添加.html后缀
+app.config['FREEZER_REMOVE_EXTRA_TRAILING_SLASH'] = True
 
 freezer = Freezer(app)
 
@@ -29,17 +33,6 @@ def publications():
 @freezer.register_generator
 def projects():
     yield {}
-
-
-# 出版物详情页面生成器
-@freezer.register_generator
-def publication():
-    publications_dir = os.path.join(app.root_path, 'content', 'publications')
-    if os.path.exists(publications_dir):
-        for filename in os.listdir(publications_dir):
-            if filename.endswith('.md'):
-                yield {'publication_id': filename.replace('.md', '')}
-
 
     
 if __name__ == '__main__':
