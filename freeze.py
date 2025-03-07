@@ -34,10 +34,56 @@ def publications():
 @freezer.register_generator
 def projects():
     yield {}
+  
+# 添加notes路由生成器
+@freezer.register_generator
+def notes():
+    yield {}  # 生成notes主页
+
+# 添加notes_by_tag路由生成器
+@freezer.register_generator
+def notes_by_tag():
+    # 获取所有标签
+    notes_dir = os.path.join(app.root_path, 'content', 'notes')
+    if os.path.exists(notes_dir):
+        all_tags = set()
+        for filename in os.listdir(notes_dir):
+            if filename.endswith('.md'):
+                # 这里简化处理，实际应该解析文件获取标签
+                # 假设每个文件至少有一个标签
+                all_tags.add('programmming')  # 示例标签
+                all_tags.add('software')      # 示例标签
+        
+        for tag in all_tags:
+            yield {'tag': tag}
+
+# 添加单个note路由生成器
+@freezer.register_generator
+def note():
+    notes_dir = os.path.join(app.root_path, 'content', 'notes')
+    if os.path.exists(notes_dir):
+        for filename in os.listdir(notes_dir):
+            if filename.endswith('.md'):
+                note_id = filename.replace('.md', '')
+                yield {'note_id': note_id}  
+
 
 # 添加后处理函数，为生成的文件添加.html后缀
 def add_html_extension():
     docs_dir = os.path.join(app.root_path, 'docs')
+    
+    # 特别处理notes目录
+    notes_dir = os.path.join(docs_dir, 'notes')
+    notes_index = os.path.join(notes_dir, 'index.html')
+    notes_html = os.path.join(docs_dir, 'notes.html')
+    
+    # 如果notes目录存在且有index文件，将其移动到根目录并重命名为notes.html
+    if os.path.exists(notes_dir) and os.path.isdir(notes_dir):
+        if os.path.exists(notes_index) and os.path.isfile(notes_index):
+            print(f"将notes/index移动到根目录并重命名为notes.html")
+            shutil.copy(notes_index, notes_html)
+    
+    # 处理根目录下的无后缀文件
     for item in os.listdir(docs_dir):
         item_path = os.path.join(docs_dir, item)
         # 如果是文件且没有扩展名
@@ -48,6 +94,20 @@ def add_html_extension():
             
             # 更新所有HTML文件中的链接
             update_links_in_html_files(docs_dir, item, item + '.html')
+    
+    # 处理notes目录下的无后缀文件
+    if os.path.exists(notes_dir) and os.path.isdir(notes_dir):
+        for item in os.listdir(notes_dir):
+            item_path = os.path.join(notes_dir, item)
+            # 如果是文件且没有扩展名
+            if os.path.isfile(item_path) and '.' not in item and item != 'index':
+                new_path = item_path + '.html'
+                print(f"重命名: notes/{item} -> notes/{item}.html")
+                shutil.move(item_path, new_path)
+                
+                # 更新所有HTML文件中的链接
+                update_links_in_html_files(docs_dir, f"notes/{item}", f"notes/{item}.html")
+
 # 更新HTML文件中的链接
 def update_links_in_html_files(directory, old_link, new_link):
     for root, _, files in os.walk(directory):
