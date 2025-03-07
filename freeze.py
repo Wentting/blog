@@ -17,7 +17,11 @@ freezer = Freezer(app)
 #     for filename in os.listdir(notes_dir):
 #         if filename.endswith('.md'):
 #             yield {'note_id': filename.replace('.md', '')}
-
+@freezer.register_generator
+def index():
+    # 确保生成首页
+    yield {}
+    
 if __name__ == '__main__':
     freezer.freeze()
     print("静态网站生成完成，请确保index.html文件在根目录下")
