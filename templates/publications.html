@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Publications{% endblock %}
+
+{% block content %}
+<h2>Publications</h2>
+
+<div class="publications-container">
+    {% for year in sorted_years %}
+        <h2 class="publication-year">{{ year }}</h2>
+        <div class="publication-year-group">
+            {% for pub in publications_by_year[year] %}
+                <div class="publication-item">
+                    {{ pub.content | safe }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

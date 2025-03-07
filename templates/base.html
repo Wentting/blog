@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}个人主页{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}" {% if request.path == '/' %}class="active"{% endif %}>Home</a></li>
+                <!-- <li><a href="{{ url_for('notes') }}" {% if request.path.startswith('/notes') %}class="active"{% endif %}>Notes</a></li> -->
+                <li><a href="/publications" {% if request.path == '/publications' %}class="active"{% endif %}>Publications</a></li>
+                <li><a href="/projects" {% if request.path == '/projects' %}class="active"{% endif %}>Database&Tools</a></li>
+            </ul>
+        </nav>
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

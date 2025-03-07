@@ -1,0 +1,4 @@
+1.	Zong W# as the co-first author in CNCB-NGDC Members and Partners: Database resources of the National Genomics Data Center, China National Center for Bioinformation in 2024. Nucleic Acids Research, 2024, 52: D18-D32.
+2.	Zong W# as the co-first author in CNCB-NGDC Members and Partners: Database resources of the National Genomics Data Center, China National Center for Bioinformation in 2023. Nucleic Acids Research, 2023, 51: D18-D28.
+3.	Zong W# as the co-first author in CNCB-NGDC Members and Partners: Database resources of the National Genomics Data Center, China National Center for Bioinformation in 2022. Nucleic Acids Research, 2022, 50: D27-D38.
+4.	Zong W# as the co-first author in CNCB-NGDC Members and Partners: Database resources of the National Genomics Data Center, China National Center for Bioinformation in 2021. Nucleic Acids Research, 2021, 49: D18-D28.

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Note{% endblock %}
+
+{% block content %}
+<div class="note-container">
+    <article class="note-content">
+        {{ content | safe }}
+    </article>
+    
+    <div class="note-footer">
+        <a href="{{ url_for('notes') }}" class="back-link">← Back to all notes</a>
+    </div>
+</div>
+{% endblock %}

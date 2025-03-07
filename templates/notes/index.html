@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Notes{% endblock %}
+
+{% block content %}
+<h1>Notes</h1>
+
+<div class="notes-grid">
+    {% for note in notes %}
+    <div class="note-card">
+        <h3><a href="{{ note.url }}">{{ note.title }}</a></h3>
+        <time>{{ note.date.strftime('%Y-%m-%d') }}</time>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
