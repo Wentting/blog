@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications</title>
+    <link rel="stylesheet" href="blog/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="blog/index.html" >Home</a></li>
+                <!-- <li><a href="blog/notes" >Notes</a></li> -->
+                <li><a href="/publications" class="active">Publications</a></li>
+                <li><a href="/projects" >Database&Tools</a></li>
+            </ul>
+        </nav>
+
+        
+<h2>Publications</h2>
+
+<div class="publications-container">
+    
+        <h2 class="publication-year">2023</h2>
+        <div class="publication-year-group">
+            
+                <div class="publication-item">
+                    <h3>MethBank 4.0: an updated database of DNA methylation across a variety of species</h3>
+<p><strong>Authors:</strong> Zhang M#, <strong>Zong W</strong>, Zou D#, Wang G#, Zhao W, Yang F, Wu S, Zhang X, Guo X, Ma Y, Xiong Z, Zhang Z*</p>
+<p>*Nucleic Acids Research, 2023</p>
+<p><a href="https://watermark.silverchair.com/gkac969.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAA00wggNJBgkqhkiG9w0BBwagggM6MIIDNgIBADCCAy8GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMJC7eVs1TgfciHKt6AgEQgIIDAHjm5UY6y1SAi_KGXXc6PCD6JXjcTwIYTtVuL0_Qsrc3RqMagC_m9k6pbBpKBnvMPLudWm3rLF26WVCHHCyBH8R3DipeN8nHD2JRCb-mHKGvHSKEDddA9czt8_Sk6G3v7qPsaTFg9IYifs3Y6hqZH2hxHEvKGm3ySyhMz2dv0qCIC-2oUtRRpC6DH8F7ioftUlsJ2m4olX4FWHOsmxTq4zPgr8PFA4Qpfa6lJyLd1Lcc8z-HiXUCvHevObIf_ljfLMLD6q9jlIxrtT71fyEemH3rSW_wUPh08I4UxaCC9h6AqjqxbbwGirU9AqNObrmgjU8QOqDuO1l7SJPa_hLUJd8Dexmw_5iDWfni1pdFMhDSmNrjxnlXo05fOQ1-k27AKX6z8YY6B3csQQhUXgIIaFfLPcLAhHV0QMA7qRDvIzo_hGLyek_Mx1B-r2e4B3PDB1FC6fzVpHqoqmIW5hX7OXaCNikjshfZANtsexoXUg5C_DnAbKFZYpi55P_iFJPXoBR-PwU-tkl4SDNEyE0FEJWyfw00qSi51Ph23NegZnSVygLbyVwg9FwoAg4sxdkZEX3U2Q-q-Rhd8IS9Bfr4yKZzkjq7Uu96_XbnFAWqT2wO9PiYMvj32zh2M_txEvrUXmw7a7AbevFZG9Ms4D6FrQR2HtAcwWOWKbzn2HZsGh99Fe5BkXeH90cTvwVLbJLDDkLtVn4QjVRrbXVP5om2FZK_df1wuwbRfc-p6DbovRmXfvJvyyubpefg7A2iiocQFBRUAUaDRbtB9sA0ztNZcZteFw9QkwjVMIR1nvavo9ORt5Ova_DTkE0r7uVqLkOBxXKxzimkv6EodxrqbPSlwg-r_6RzT207I9z9X4w8Yn48oDGowJxiP-NVKd8gLJxPU4-9HbrlRezlQwmiuSRnYsYA82iZz5cyPGG0AgLvWBtvjcz2jYZERBdA7JH2NKH6QjmSkjMJebsR-EJr1Mtivn8mJXspHMkdmuQQTz4RgpW1_-XQ3W7U82Pf9g4iKGW77A">PDF</a> | <a href="https://github.com/username/project">Code</a> | <a href="https://doi.org/10.1093/nar/gkac969">DOI</a></p>
+                </div>
+            
+                <div class="publication-item">
+                    <h3>PPGR: a comprehensive perennial plant genomes and regulation database</h3>
+<p><strong>Authors:</strong> Yang S#, <strong>Zong W</strong>, Shi L, Li R, Ma Z, Ma S, Si J, Wu Z, Zhai J, Fan Z, Chen S, Huang H, Zhang D, Bao Y<em>, Li R</em>, Xie J*..</p>
+<p><em>Nucleic Acids Research, 2022</em></p>
+<p><a href="https://watermark.silverchair.com/gkad963.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAA04wggNKBgkqhkiG9w0BBwagggM7MIIDNwIBADCCAzAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMs7egNl6ThzOj5Se1AgEQgIIDAScFCatVKKE3P88CL9hN2u6fg9OvvgbtpXdmVG7oVkhS-T-FvG5jz4zbVJJzuZ3z00XrfswsKgY6PcRtvvTyH-J9EbBFK0-KtyijHhGpxc1--iLaTQZePqtqSpKY9SnnWBjHGhyuEntfCKXAa_qlp2ybfsZV5bYyzR0VL-SO1O3kIcqS_0C5raEidXNADgWviMmqjVudJlJi-Nl5Mjznwg1tT6M40YOHri2P4Qov8vVEQyr3QlC5swMqYO8CCZ27n6OghOkZAobczXvOxT63mxpbnj8DYvJA163tByQbj3PQ67y3balVPPqkGhdsAF2vDJBUMpCdZF-pkXqrkC_U7mYRO2fkS1V21usMGvR8bNK1ajwuHLs_mC28gH0iKSkrvn6sVP0FoGs_5d8CMSreMoswTqv3ruNdvaRsYeWqhIRL4sKbKp2_gVQSsy21ytNQWoBSokFVSd-Reyv9vo1QZcIT2vKZXpJjn8f91VrIpgaZ76onJlmEbsefwvaTIxrGOVxv624GA_E6VLooupVR4CUxdO4M54dYwcpnQGd2z3wltYmzI9PfRP6ECOnLSlWl_w_fBO8zwC3nepQT1JLPfJ3sz2GuYNIf-vlg1LiO7WZoCyRy_r-pJF3mm3dUVUWz4QDoBycGxHBKhwtW7cGdc6VROpKt66lVoJmfVsGI4zY3Aa-TNL4Vn_HMUItKq9z2ysfIjFfypq33ungdcZy4t8sayDn8ZE9LcQwATSWMVEtal4tWogOUeofOtBlxJmJ15geZXF5sS-7PaCPFyC9TsOb02ZoWQuoyY4exk9UVd-rAECU4_XLa7ZQRhygd5ZToVL8UPxQigv7e1EbZrllwWVIa4Dtm5Jqag1oOry0pft4TFJ_mv7L-plRG4pbH8CUagNCW4zrnNC-XW1Ydjb6dFfKsF9gWS71PJIze-gO2PkhgSD3k2p7zGbsPdE5mAX1EhHASK6Jxus9i8eS7rnq0qhlgeLTtIggFLBacN11Ueky4dcokW9AWi9YFZm71IDjKwQw">PDF</a> | <a href="">Code</a> | <a href="https://doi.org/10.1093/nar/gkad963">DOI</a></p>
+                </div>
+            
+        </div>
+    
+        <h2 class="publication-year">2022</h2>
+        <div class="publication-year-group">
+            
+                <div class="publication-item">
+                    <h3>CCAS: One-stop and comprehensive annotation system for individual cancer genome at multi-omics level</h3>
+<p><strong>Authors:</strong> Zheng X#, <strong>Zong W#</strong>, Li Z#, Ma Y, Sun Y, Xiong Z, Wu S, Yang F, Zhao W, Bu C, Du Z, Xiao J<em>, Bao Y</em>.</p>
+<p><em>Frontiers in Genetics, 2022</em></p>
+<p><a href="">PDF</a> | <a href="">Code</a> | <a href="https://doi.org/10.3389/fgene.2022.956781">DOI</a></p>
+                </div>
+            
+                <div class="publication-item">
+                    <h3>scMethBank: a database for single-cell whole genome DNA methylation maps</h3>
+<p><strong>Authors:</strong> <strong>Zong W#</strong>, Kang H#, Xiong Z, Ma Y, Jin T, Gong Z, Yi L, Zhang M, Wu S, Wang G, Bao Y<em> and Li R</em>.</p>
+<p><em>Nucleic Acids Research, 2022</em></p>
+<p><a href="https://watermark.silverchair.com/gkab833.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAA00wggNJBgkqhkiG9w0BBwagggM6MIIDNgIBADCCAy8GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMIfqAaca-XLHVTriwAgEQgIIDACcxQ8u2rPzxGMI-jK55V8Fo6zx0B7DkOozeHENDt256hvjLvgy7RQFUe2uhq_uL_3xzuPI5HL3n-_6me3kLckMuR_HP_kjzpKN5yIKI3ls2cb6xGxZerbDaqBSkpgQA0tNhyr54lYP_sZcNVaLlejA_K94bEBunh_KRKNj-os6JuA5H9imIV58fc6UMRc2jX2IAwBNZciDEodZcCzPOx9eU7bzi6gZjRDwRhDvuhj23xdbx6sdVGTyceo97gevSQmcvVmwIUzvh-lNa2I8-r5-t-I19T2vucpKMFAy6GCCrVtG4ayqeZW3YmhV0kYBCJhacB88PY0x974_pHJWMt5dSHLJSmWyXmp48jWbWiDZw6zKUjEtogRfvHOZ48gp4GVnEHL5w3LT2bpi6Rv6AmhrMUrZMZXv_FlnJ3PZlcAK30_h7k9Wjsa8Ir9tYaFR0NGyAh9IOm7ctRUD2zVGXr6PzgXsZ8Zuf18nucHqkdX6ohFQfXTydTYuEeX-CnQxelkH4V0ZHiytpfb554OONj681Hr1B3u035JI0yqR7tpMYYnJAUzuyCrAax46VLN3rUp65gh100wOcQXwXzklmXwhsMC6XC6lYcsvR9KOoWLkMtBnoIvcJ1qtG1-lPOjw-iXL3bz9Ns42Sfs-hqWdLixvjKswX8r6W2mq4p9B2QD91hIF3uEFPCGeYJN7gIHD5yENGJ30VXpaRkrWQME4kWKSmwJ0tH3IUpg2MI_30_Q-2jefKGejV7ULiGc4Pd6fJ4vjpQgchMwPwjL2CTRMbE9hBM8hR03haBFvCoOQCeAUoPz5Ha_wfDziVQ3Hz3l-K8jxVk1IgdIZO0EM61Ar4IYAmpF62GlDJ7c3VzcISrmO2mk9RQx8RvmWqqVqKTN3hCCFiI3_FdMVX9QmUqWhEOR8eGmr1uXskPoKC6hTEu99OpCLeNLSYHdp-iaTQ86z1xaIPjD4APrWNFXA9ibueKcoCqcOPHVapvt2KwM1wH6q_VYwwTSO6X7XEEAG8louZyQ">PDF</a> | <a href="">Code</a> | <a href="https://doi.org/10.1093/nar/gkab833">DOI</a></p>
+                </div>
+            
+        </div>
+    
+        <h2 class="publication-year">CNCB</h2>
+        <div class="publication-year-group">
+            
+                <div class="publication-item">
+                    <ol>
+<li>Zong W# as the co-first author in CNCB-NGDC Members and Partners: Database resources of the National Genomics Data Center, China National Center for Bioinformation in 2024. Nucleic Acids Research, 2024, 52: D18-D32.</li>
+<li>Zong W# as the co-first author in CNCB-NGDC Members and Partners: Database resources of the National Genomics Data Center, China National Center for Bioinformation in 2023. Nucleic Acids Research, 2023, 51: D18-D28.</li>
+<li>Zong W# as the co-first author in CNCB-NGDC Members and Partners: Database resources of the National Genomics Data Center, China National Center for Bioinformation in 2022. Nucleic Acids Research, 2022, 50: D27-D38.</li>
+<li>Zong W# as the co-first author in CNCB-NGDC Members and Partners: Database resources of the National Genomics Data Center, China National Center for Bioinformation in 2021. Nucleic Acids Research, 2021, 49: D18-D28.</li>
+</ol>
+                </div>
+            
+        </div>
+    
+        <h2 class="publication-year">Cooperative</h2>
+        <div class="publication-year-group">
+            
+                <div class="publication-item">
+                    <ol>
+<li>Jiang S#, Qian Q#, Zhu T#, <strong>Zong W</strong>, Shang Y, Jin T, Zhang Y, Chen M, Wu Z, Chu Y, Zhang R, Luo S, Jing W, Zou D, Bao Y<em>, Xiao J</em>, Zhang Z*. Cell Taxonomy: a curated repository of cell types with multifaceted characterization. Nucleic Acids Research, 2023, 51: D853-D860.</li>
+<li>Kang H#, Zhu X, Cui Y, Xiong Z, <strong>Zong W</strong>, Bao Y<em>, Jia P</em>. A comprehensive benchmark of transcriptomic biomarkers for immune checkpoint blockades. Cancers, 2023, 15: 4094. doi: 10.3390/cancers15164094.</li>
+<li>Wang G#, Xiong Z#, Yang F, Zheng X, <strong>Zong W</strong>, Li R<em>, Bao Y</em>. Identification of COVID-19-associated DNA methylation variations by integrating methylation array and scRNA-Seq data at cell-type resolution. Genes, 2022, 13: 1109. doi: 10.3390/genes13071109.</li>
+<li>Wu S#, Huang Y#, Zhang M, Gong Z, Wang G, Zheng X, <strong>Zong W</strong>, Zhao W, Xing P, Li R<em>, Liu Z</em>, and Bao Y*. ASCancer Atlas: a comprehensive knowledgebase of alternative splicing in human cancers[J]. Nucleic Acids Research, 2023, 51: D1196-D1204.</li>
+<li>Xiong Z#, Yang F#, Li M#, Ma Y, Zhao W, Wang G, Li Z, Zheng X, Zou D, <strong>Zong W</strong>, Kang H, Jia Y, Li R<em>, Zhang Z</em>, Bao Y*. EWAS Open Platform: integrated data, knowledge and toolkit for epigenome-wide association study. Nucleic Acids Research, 2022, 50: D1004-D1009.</li>
+<li>Zhang Y#, Zou D#, Zhu T#, Teng X#, Chen M#, Niu G, <strong>Zong W</strong>, Pan R, Jing W, Sang J, Liu C, Zhao W<em>, Xiao J</em>, Bao Y<em>, Hao L</em>, Zhang Z*. Gene Expression Nebulas (GEN): a comprehensive data portal integrating transcriptomic profiles across multiple species at both bulk and single-cell levels. Nucleic Acids Research, 2022, 50: D1016-D1024.</li>
+<li>Wang H#, Zhang J#, Cheng Z, Si J, Wang T, Zhang X, Zhang H, <strong>Zong W</strong>, Liu L, Huang H, El-Kassaby A. <em>, Zhang D</em>, Xie J*. C-termini diversification of plant Growth-regulating factors evolved novel phenotypic effects on morphological traits. (Under review)</li>
+</ol>
+                </div>
+            
+        </div>
+    
+</div>
+
+    </div>
+</body>
+</html>
