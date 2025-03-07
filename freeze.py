@@ -1,6 +1,7 @@
 from flask_frozen import Freezer
 from app import app
 import os
+import shutil
 
 # 设置输出目录为 docs
 app.config['FREEZER_DESTINATION'] = 'docs'
@@ -34,6 +35,35 @@ def publications():
 def projects():
     yield {}
 
+# 添加后处理函数，为生成的文件添加.html后缀
+def add_html_extension():
+    docs_dir = os.path.join(app.root_path, 'docs')
+    for item in os.listdir(docs_dir):
+        item_path = os.path.join(docs_dir, item)
+        # 如果是文件且没有扩展名
+        if os.path.isfile(item_path) and '.' not in item and item != 'CNAME':
+            new_path = item_path + '.html'
+            print(f"重命名: {item} -> {item}.html")
+            shutil.move(item_path, new_path)
+            
+            # 更新所有HTML文件中的链接
+            update_links_in_html_files(docs_dir, item, item + '.html')
+# 更新HTML文件中的链接
+def update_links_in_html_files(directory, old_link, new_link):
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if file.endswith('.html'):
+                file_path = os.path.join(root, file)
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # 更新href链接
+                updated_content = content.replace(f'href="{old_link}"', f'href="{new_link}"')
+                
+                if content != updated_content:
+                    with open(file_path, 'w', encoding='utf-8') as f:
+                        f.write(updated_content)
+                    print(f"已更新链接: {file_path}")
     
 if __name__ == '__main__':
     
@@ -57,7 +87,9 @@ if __name__ == '__main__':
         print("首页已生成")
     else:
         print("警告: 首页未生成!")
-    
+    # 为生成的文件添加.html后缀
+    print("正在为生成的文件添加.html后缀...")
+    add_html_extension()
     if os.path.exists(os.path.join(docs_dir, 'static')):
         print("静态资源已复制")
     else:
