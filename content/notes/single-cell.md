@@ -1,0 +1,31 @@
+---
+title: How to deal with the low mapping rate for scBS-seq
+date: 2025-03-02
+tags: [epigenomic, single-cell, DNA methylation]
+description: A brief description of the example note.
+reading_time: 3
+---
+
+在Bismark中进行单细胞mapping等操作的依据
+- https://felixkrueger.github.io/Bismark/faq/single_cell_pbat/
+- https://sequencing.qcfail.com/articles/- pbat-libraries-may-generate-chimaeric-read-pairs/
+- https://sequencing.qcfail.com/articles/soft-clipping-of-reads-may-add-potentially-unwanted-alignments-to-repetitive-regions/
+
+基于后亚硫酸盐接头标记 (PBAT) 的亚硫酸盐测序，包括scBS-seq (单细胞亚硫酸盐测序) 或scNMT-seq (单细胞核小体、甲基化和转录测序) 经常会出现一些“问题”，在处理数据时应牢记以下几点：
+- scBS -Seq 方法使用 PBAT 类型的协议，但采用五轮序列捕获和延伸来扩增起始材料，因此所有四种不同的亚硫酸盐链 (OT、CTOT、OB、CTOB) 都进行了测序。由于 6N 寡核苷酸用于随机引发步骤，因此需要从 5' 端去除 6 bp。由于 scBS 和 PBAT 文库往往会产生嵌合片段，因此我们倾向于始终将 scBS-Seq 视为单端读取。另请参阅下面的“3' 修剪概述”部分。
+  1. 特殊对准模式
+PBAT 文库会拉下与“常见”DNA 链（OT 和 OB）互补的 DNA 链，因此通常需要以--pbat模式映射到互补链（CTOT 和 CTOB）。另一方面，单细胞技术在亚硫酸盐转化步骤后会经历几轮 DNA 扩增，这意味着它们必须以--non_directional模式对齐。
+  2.  错误启动
+PBAT/单细胞文库通常在读取的 5' 端具有非常偏向的序列组成，这反映了启动/下拉过程的非随机性。症状和可能的缓解程序已在此处进行了更详细的讨论：QCFail 错误启动问题。总之，在进行比对之前，应从读取的 5' 端进行硬修剪，以防止较低的映射效率和错误映射/错误调用甲基化状态。另请参阅Bismark 手册中有关各种库策略的修剪和处理说明。
+  3. 嵌合读段
+嵌合读取的存在之前已在QCFail上进行了更详细的讨论。在这种情况下，混合读取是被视为不一致的读取，即 R1 和 R2 对齐到基因组中完全不同的位置，或者只有一个读取对齐良好而另一个不对齐。
+  4.  PBAT
+- To rescue as much data from a paired-end PBAT library with low mapping efficiency as possible we sometimes perform the following method (affectionately termed “Dirty Harry” because it is not the most straight forward or cleanest approach):
+1.  We would recommend running 5′ clipping and trimming first (e.g. trim_galore --clip_r1 6 --clip_r2 6 --paired *fastq.gz, and run Bismark in paired-end mode with --unmapped specified
+2.  Properly aligned PE reads should be methylation extracted while counting overlapping reads only once (which is the default)
+3. unmapped R1 is then mapped in single-end mode (--pbat)
+4.  unmapped R2 is then mapped in single-end mode (in default = directional mode)
+5. Single-end aligned R1 and R2 can then be methylation extracted normally as they should in theory map to different places in the genome anyway so don’t require attention to overlapping reads. Finally, the methylation calls from the PE and SE alignments can merged together before proceeding to the bismark2bedGraph or further downstream steps. A sample command for this would be:
+
+**Mapping**
+由于上述问题，在进行数据质控后，单细胞甲基化数据可以一开始就以单端模式进行传统比对，之后分别对单端的结果进行合并。使用较新版本的 Bismark，理论上还可以选择使用局部比对（--local），可以单独使用，也可以与上述方法（Dirty Harry/Wu 等人）结合使用

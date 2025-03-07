@@ -934,3 +934,184 @@ nav ul li a.active::after {
     background-color: rgba(255, 152, 0, 0.1);
     color: #FF9800;
 }
+
+/* 笔记列表样式 */
+.notes-list {
+    margin: 2rem 0;
+}
+
+.note-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.note-item h2 {
+    margin-bottom: 0.5rem;
+}
+
+.note-item h2 a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.note-item h2 a:hover {
+    color: #0066cc;
+}
+
+.note-description {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.note-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.reading-time, .date {
+    margin-right: 1.5rem;
+}
+
+.note-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    margin-right: 0.8rem;
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.tag:hover {
+    text-decoration: underline;
+}
+
+/* 标签容器 */
+.tags-container {
+    margin: 1.5rem 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.tag-link {
+    color: #0066cc;
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.tag-link:hover {
+    text-decoration: underline;
+}
+
+/* 分页样式 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.pagination-link {
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border: 1px solid #ddd;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.pagination-link:hover {
+    background-color: #f5f5f5;
+}
+
+.pagination-link.active {
+    background-color: #0066cc;
+    color: white;
+    border-color: #0066cc;
+}
+
+.pagination-link.disabled {
+    color: #aaa;
+    pointer-events: none;
+}
+
+.pagination-ellipsis {
+    padding: 0.5rem 0.7rem;
+}
+
+/* 单个笔记页面样式 */
+.note-header {
+    margin-bottom: 2rem;
+}
+
+.note-content {
+    line-height: 1.7;
+    margin-bottom: 3rem;
+}
+
+.note-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.back-link {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Markdown内容样式 */
+.markdown-body {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.markdown-body h1, 
+.markdown-body h2, 
+.markdown-body h3, 
+.markdown-body h4, 
+.markdown-body h5, 
+.markdown-body h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.markdown-body p {
+    margin-bottom: 1.2em;
+}
+
+.markdown-body code {
+    background-color: #f5f5f5;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.markdown-body pre {
+    background-color: #f5f5f5;
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.markdown-body blockquote {
+    border-left: 4px solid #ddd;
+    padding-left: 1em;
+    color: #666;
+    margin-left: 0;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}

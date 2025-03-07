@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,abort
 import markdown
 import os
 from datetime import datetime
+import yaml
+from flask_paginate import Pagination
 
 app = Flask(__name__, 
             template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'),
@@ -13,34 +15,6 @@ def home():
 
     return render_template('home.html')
 
-@app.route('/notes')
-def notes():
-    notes_dir = os.path.join(app.root_path, 'content', 'notes')
-    notes = []
-    for filename in os.listdir(notes_dir):
-        if filename.endswith('.md'):
-            with open(os.path.join(notes_dir, filename), 'r', encoding='utf-8') as f:
-                content = f.read()
-                # 解析 markdown 文件头部的元数据
-                title = filename.replace('.md', '').replace('-', ' ').title()
-                date = datetime.fromtimestamp(os.path.getmtime(os.path.join(notes_dir, filename)))
-                notes.append({
-                    'title': title,
-                    'date': date,
-                    'url': f'/notes/{filename.replace(".md", "")}'
-                })
-    return render_template('notes/index.html', notes=sorted(notes, key=lambda x: x['date'], reverse=True))
-
-@app.route('/notes/<note_id>')
-def note(note_id):
-    try:
-        with open(os.path.join(app.root_path, 'content', 'notes', f'{note_id}.md'), 'r', encoding='utf-8') as f:
-            content = f.read()
-            html = markdown.markdown(content, extensions=['fenced_code', 'tables'])
-            return render_template('notes/post.html', content=html)
-    except FileNotFoundError:
-        return "Note not found", 404
-    
 # 添加新的 publications 路由
 @app.route('/publications')
 def publications():
@@ -123,6 +97,157 @@ def project(project_id):
     
     # 渲染模板
     return render_template('project.html', content=html_content, title=project_id)
+
+# 添加笔记相关路由
+# 添加笔记相关路由
+@app.route('/notes')
+@app.route('/notes/')
+def notes():
+    page = request.args.get('page', 1, type=int)
+    per_page = 10  # 每页显示的笔记数量
+    
+    # 获取所有笔记
+    all_notes = get_all_notes()
+    
+    # 分页
+    total = len(all_notes)
+    start = (page - 1) * per_page
+    end = min(start + per_page, total)
+    notes_page = all_notes[start:end]
+    
+    # 创建分页对象
+    pagination = Pagination(page=page, total=total, per_page=per_page, 
+                           css_framework='bootstrap4')
+    
+    # 获取所有标签
+    all_tags = get_all_tags(all_notes)
+    
+    # 计算总页数
+    total_pages = (total + per_page - 1) // per_page
+    
+    return render_template('notes.html', notes=notes_page, 
+                          pagination=pagination, all_tags=all_tags,
+                          page=page, total_pages=total_pages)
+
+@app.route('/notes/tag/<tag>')
+def notes_by_tag(tag):
+    page = request.args.get('page', 1, type=int)
+    per_page = 10
+    
+    # 获取所有笔记
+    all_notes = get_all_notes()
+    
+    # 过滤指定标签的笔记
+    filtered_notes = [note for note in all_notes if tag in note['tags']]
+    
+    # 分页
+    total = len(filtered_notes)
+    start = (page - 1) * per_page
+    end = min(start + per_page, total)
+    notes_page = filtered_notes[start:end]
+    
+    # 创建分页对象
+    pagination = Pagination(page=page, total=total, per_page=per_page, 
+                           css_framework='bootstrap4')
+    
+    # 获取所有标签
+    all_tags = get_all_tags(all_notes)
+    
+    # 计算总页数
+    total_pages = (total + per_page - 1) // per_page
+    
+    return render_template('notes.html', notes=notes_page, 
+                          pagination=pagination, all_tags=all_tags, 
+                          current_tag=tag, page=page, total_pages=total_pages)
+
+@app.route('/notes/<note_id>')
+def note(note_id):
+    note = get_note_by_id(note_id)
+    if not note:
+        abort(404)
+    return render_template('note.html', note=note)
+
+# 辅助函数
+def get_all_notes():
+    notes = []
+    notes_dir = os.path.join(app.root_path, 'content', 'notes')
+    
+    if not os.path.exists(notes_dir):
+        return []
+    
+    for filename in os.listdir(notes_dir):
+        if filename.endswith('.md'):
+            note_id = filename[:-3]  # 移除.md后缀
+            note = get_note_by_id(note_id)
+            if note:
+                notes.append(note)
+    
+    # 按日期排序，最新的在前
+    notes.sort(key=lambda x: x['date'], reverse=True)
+    return notes
+
+def get_note_by_id(note_id):
+    note_path = os.path.join(app.root_path, 'content', 'notes', f'{note_id}.md')
+    
+    if not os.path.exists(note_path):
+        return None
+    
+    with open(note_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # 解析YAML前置元数据和Markdown内容
+    if content.startswith('---'):
+        parts = content.split('---', 2)
+        if len(parts) >= 3:
+            front_matter = yaml.safe_load(parts[1])
+            markdown_content = parts[2]
+        else:
+            front_matter = {}
+            markdown_content = content
+    else:
+        front_matter = {}
+        markdown_content = content
+    
+    # 将Markdown转换为HTML
+    html_content = markdown.markdown(
+        markdown_content,
+        extensions=['extra', 'codehilite', 'toc', 'tables']
+    )
+    
+    # 提取元数据
+    title = front_matter.get('title', note_id)
+    date_str = front_matter.get('date', datetime.now().strftime('%Y-%m-%d'))
+    try:
+        date = datetime.strptime(date_str, '%Y-%m-%d')
+    except:
+        date = datetime.now()
+    
+    tags = front_matter.get('tags', [])
+    description = front_matter.get('description', '')
+    reading_time = front_matter.get('reading_time', estimate_reading_time(markdown_content))
+    
+    return {
+        'id': note_id,
+        'title': title,
+        'date': date,
+        'tags': tags,
+        'description': description,
+        'content': html_content,
+        'reading_time': reading_time
+    }
+
+def get_all_tags(notes):
+    tags = set()
+    for note in notes:
+        for tag in note['tags']:
+            tags.add(tag)
+    return sorted(list(tags))
+
+def estimate_reading_time(content):
+    # 估计阅读时间：假设平均阅读速度为每分钟200个单词
+    words = len(content.split())
+    minutes = max(1, round(words / 200))
+    return minutes
     
 if __name__ == '__main__':
     app.run(debug=True, port=5001)  # 修改为其他端口号

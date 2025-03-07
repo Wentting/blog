@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="../../index.html" >Home</a></li>
+                <!-- <li><a href="../index.html" class="active">Notes</a></li> -->
+                <!-- <li><a href="/publications" >Publications</a></li> -->
+                <li><a href="publications.html" >Publications</a></li>
+                <li><a href="projects.html" >Web&Tools</a></li>
+                <li><a href="notes.html" >Notes</a></li>
+             
+            </ul>
+        </nav>
+
+        
+<h1>Notes</h1>
+<p class="subtitle">Essays and other useful notes</p>
+
+<div class="tags-container">
+    
+        <a href="DNA%20methylation" class="tag-link">#DNA methylation</a>
+         • 
+    
+        <a href="epigenomic" class="tag-link">#epigenomic</a>
+         • 
+    
+        <a href="programmming" class="tag-link">#programmming</a>
+         • 
+    
+        <a href="single-cell" class="tag-link">#single-cell</a>
+         • 
+    
+        <a href="software" class="tag-link">#software</a>
+        
+    
+</div>
+
+<div class="notes-list">
+    
+    <div class="note-item">
+        <h2><a href="../example-note">使用mkdocs进行技术文档编写</a></h2>
+        <p class="note-description">A brief description of the example note.</p>
+        
+        <div class="note-meta">
+            <span class="reading-time">3 min read</span>
+            <span class="date">March 07, 2025</span>
+            
+            <div class="note-tags">
+                
+                    <a href="programmming" class="tag">#programmming</a>
+                
+                    <a href="software" class="tag">#software</a>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<!-- 分页控件 -->
+<div class="pagination">
+    
+        <span class="pagination-link disabled">&laquo; Previous</span>
+    
+    
+    
+        
+            <span class="pagination-link active">1</span>
+        
+    
+    
+    
+        <span class="pagination-link disabled">Next &raquo;</span>
+    
+</div>
+
+    </div>
+</body>
+</html>

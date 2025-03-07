@@ -5,41 +5,69 @@
 {% block content %}
 <h1>Database & Tools</h1>
 
-<!-- 工具部分 -->
-<h2 class="section-title">Tools</h2>
+<!-- 数据库部分 -->
+<h2 class="section-title">Databases</h2>
 <div class="projects-container">
-    <!-- 工具项目 -->
-    <div class="project-card tool">
+   
+    <!-- 另一个数据库项目 -->
+    <div class="project-card database">
         <div class="project-image">
-            <img  alt="scMethylation">
+            <img src="{{ url_for('static', filename='images/projects/scmthbank.png') }}" alt="single-cell DNA methylation database">
         </div>
         <div class="project-content">
-            <h3>scMethylation</h3>
-            <p class="project-type">Tool</p>
-            <p>Single-cell DNA methylation analysis tool, providing a complete pipeline from raw data processing to downstream analysis.</p>
+            <h3>scMethBank</h3>
+            <p class="project-type">Database</p>
             <div class="project-links">
-                <a href="https://github.com/username/scMethylation" target="_blank"><i class="fab fa-github"></i> Code</a>
-                <a href="https://example.com/scMethylation/docs" target="_blank"><i class="fas fa-book"></i> Documentation</a>
+                <a href="https://ngdc.cncb.ac.cn/methbank/scm/" target="_blank"><i class="fas fa-external-link-alt"></i> Access Database</a>
+                <a href="https://doi.org/10.1093/nar/gkab833" target="_blank"><i class="fas fa-book"></i> Paper</a>
             </div>
         </div>
     </div>
 
-    <!-- 另一个工具项目 -->
-    <div class="project-card tool">
+     <!-- 另一个数据库项目 -->
+     <div class="project-card database">
         <div class="project-image">
-            <img  alt="Network Analysis Tool">
+            <img src="{{ url_for('static', filename='images/projects/methbank.png') }}" alt="Whole-genome DNA methylation database">
         </div>
         <div class="project-content">
-            <h3>Network Analysis Tool</h3>
-            <p class="project-type">Tool</p>
-            <p>Biological network analysis tool for constructing and analyzing gene regulatory networks, protein interaction networks, etc.</p>
+            <h3>MethBank</h3>
+            <p class="project-type">Database</p>
             <div class="project-links">
-                <a href="https://github.com/username/network-tool" target="_blank"><i class="fab fa-github"></i> Code</a>
-                <a href="https://example.com/network-tool/docs" target="_blank"><i class="fas fa-book"></i> Documentation</a>
+                <a href="https://ngdc.cncb.ac.cn/methbank/" target="_blank"><i class="fas fa-external-link-alt"></i> Access Database</a>
+                <a href="https://doi.org/10.1093/nar/gkac969" target="_blank"><i class="fas fa-book"></i> Paper</a>
+            </div>
+        </div>
+    </div>
+     <!-- 数据库项目 -->
+     <div class="project-card database">
+        <div class="project-image">
+            <img src="{{ url_for('static', filename='images/projects/ppgr.png') }}" alt="PPGR Database">
+        </div>
+        <div class="project-content">
+            <h3>PPGR</h3>
+            <p class="project-type">Database</p>
+            <div class="project-links">
+                <a href="https://ngdc.cncb.ac.cn/ppgr/" target="_blank"><i class="fas fa-external-link-alt"></i> Access Database</a>
+                <a href="https://doi.org/10.1093/nar/gkad963" target="_blank"><i class="fas fa-book"></i> Paper</a>
+            </div>
+        </div>
+    </div>
+     <!-- 数据库项目 -->
+     <div class="project-card database">
+        <div class="project-image">
+            <img src="{{ url_for('static', filename='images/projects/nhpatals.png') }}" alt="NHP Atlas">
+        </div>
+        <div class="project-content">
+            <h3>NHP Atlas</h3>
+            <p class="project-type">Database</p>
+            <div class="project-links">
+                <a href="https://ngdc.cncb.ac.cn/nhp/" target="_blank"><i class="fas fa-external-link-alt"></i> Access Database</a>
+                <a href="" target="_blank"><i class="fas fa-book"></i> Paper (Not release)</a>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Web Server部分 -->
 <h2 class="section-title">Web Servers</h2>
@@ -47,53 +75,52 @@
     <!-- Web Server项目示例 -->
     <div class="project-card webserver">
         <div class="project-image">
-            <img alt="Omics Analysis Server">
+            <img src="{{ url_for('static', filename='images/projects/ccas.png') }}" alt="CCAS">
         </div>
         <div class="project-content">
-            <h3>Omics Analysis Server</h3>
+            <h3>Cancer genome Consensus Annotation System</h3>
             <p class="project-type">Web Server</p>
-            <p>Online platform for multi-omics data analysis, providing interactive visualization and comprehensive analysis tools.</p>
             <div class="project-links">
-                <a href="https://example.com/omics-server" target="_blank"><i class="fas fa-external-link-alt"></i> Access Server</a>
-                <a href="https://doi.org/10.1234/example" target="_blank"><i class="fas fa-book"></i> Paper</a>
+                <a href="https://ngdc.cncb.ac.cn/ccas/#/home" target="_blank"><i class="fas fa-external-link-alt"></i> Access Server</a>
+                <a href="https://doi.org/10.3389/fgene.2022.956781" target="_blank"><i class="fas fa-book"></i> Paper</a>
+            </div>
+        </div>
+    </div>
+    <!-- Web Server项目示例 -->
+    <div class="project-card webserver">
+        <div class="project-image">
+            <img src="{{ url_for('static', filename='images/projects/network.png') }}" alt="Network">
+        </div>
+        <div class="project-content">
+            <h3>TF-Targets/Protein-Protein Interaction Query System</h3>
+            <p class="project-type">Web Server</p>
+            <div class="project-links">
+                <a href="https://ngdc.cncb.ac.cn/ppgr/cyto" target="_blank"><i class="fas fa-external-link-alt"></i> Access Server</a>
+                <a href="https://doi.org/10.1093/nar/gkad963" target="_blank"><i class="fas fa-book"></i> Paper</a>
             </div>
         </div>
     </div>
 </div>
 
-<!-- 数据库部分 -->
-<h2 class="section-title">Databases</h2>
+<!-- 工具部分 -->
+<h2 class="section-title">Tools</h2>
 <div class="projects-container">
-    <!-- 数据库项目 -->
-    <div class="project-card database">
+    <!-- 工具项目 -->
+    <div class="project-card tool">
         <div class="project-image">
-            <img src="{{ url_for('static', filename='images/projects/ppgr.png') }}" alt="PPGR Database">
+            <img  src="{{ url_for('static', filename='images/projects/scMethtools.png') }}" alt="scMethQ">
         </div>
         <div class="project-content">
-            <h3>PPGR Database</h3>
-            <p class="project-type">Database</p>
-            <p>Perennial Plant Genomes and Regulation Database, integrating genomic, transcriptomic, and epigenomic data from various perennial plants.</p>
+            <h3>scMethQ</h3>
+            <p class="project-type">Tool</p>
+            <p>Single-cell DNA methylation analysis tool, providing a complete pipeline from raw data processing to downstream analysis.</p>
             <div class="project-links">
-                <a href="https://ngdc.cncb.ac.cn/ppgr/" target="_blank"><i class="fas fa-external-link-alt"></i> Access Database</a>
-                <a href="https://doi.org/10.1093/nar/gkad963" target="_blank"><i class="fas fa-book"></i> Paper</a>
+                <a href="https://github.com/Wentting/scMethTools" target="_blank"><i class="fab fa-github"></i> Code</a>
+                <a href="https://wentting.github.io/scMethQ" target="_blank"><i class="fas fa-book"></i> Documentation</a>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- 另一个数据库项目 -->
-    <div class="project-card database">
-        <div class="project-image">
-            <img  alt="Multi-omics Database">
-        </div>
-        <div class="project-content">
-            <h3>Multi-omics Database</h3>
-            <p class="project-type">Database</p>
-            <p>Multi-omics data integration platform, supporting comprehensive analysis of transcriptomic, epigenomic, and proteomic data.</p>
-            <div class="project-links">
-                <a href="https://example.com/multiomics" target="_blank"><i class="fas fa-external-link-alt"></i> Access Database</a>
-                <a href="https://doi.org/10.1234/example" target="_blank"><i class="fas fa-book"></i> Paper</a>
-            </div>
-        </div>
-    </div>
 </div>
 {% endblock %}
